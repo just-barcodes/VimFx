@@ -231,9 +231,9 @@ absoluteTabIndex = (relativeIndex, gBrowser, {pinnedSeparate}) ->
 helper_switch_tab = (direction, {vim, count = 1}) ->
   {gBrowser} = vim.window
   index = absoluteTabIndex(direction * count, gBrowser, {pinnedSeparate: false})
-  utils.nextTick(vim.window, ->
-    gBrowser.selectTabAtIndex(index)
-  )
+  # utils.nextTick(vim.window, ->
+  gBrowser.selectTabAtIndex(index)
+  # )
 
 commands.tab_select_previous = helper_switch_tab.bind(null, -1)
 
